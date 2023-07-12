@@ -13,13 +13,7 @@
     "test:watch": "jest --watch --runInBand",
     "test:cov": "jest --coverage --runInBand",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "docker:start": "docker-compose -p next-template-mysql up -d",
-    "docker:down": "docker-compose -p next-template-mysql down",
-    "prisma:studio": "prisma studio",
-    "prisma:migration": "npx prisma format && npx prisma migrate dev && npx prisma generate",
-    "prisma:deploy": "npx prisma migrate deploy",
-    "chromatic": "npx chromatic --project-token=chpt_f10a816045e0115"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@google-cloud/storage": "^6.11.0",
@@ -52,7 +46,6 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.44.2",
     "recharts": "^2.7.2",
-    "request": "^2.88.2",
     "retry-request": "^5.0.2",
     "sharp": "^0.32.1",
     "tailwind-merge": "^1.13.2",

@@ -1,4 +1,4 @@
-import { Failure, Result, Success } from "src/__shared__/result/index";
+import { Failure, Result, Success } from "@/__shared__/utils/result/index";
 
 describe("Result型", () => {
   const doSomething = (x: boolean): Result<string, Error> => {

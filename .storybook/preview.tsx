@@ -1,5 +1,5 @@
+import "@/app/(root)/globals.css";
 import type { Preview } from "@storybook/react";
-import "../src/app/globals.css";
 // @ts-ignore
 // TS2307: Cannot find module '@/components/ui/toaster' or its corresponding type declarations.
 import { Toaster } from "@/__shared__/components/ui/toaster";

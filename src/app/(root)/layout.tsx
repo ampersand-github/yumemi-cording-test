@@ -3,7 +3,7 @@ import { url } from "@/__shared__/utils/url";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import React from "react";
-import "./globals.css";
+import "src/app/(root)/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,9 @@ export default function RootLayout({
         <div className="relative flex min-h-screen flex-col">
           <div className={"flex h-16 items-center bg-gray-100"}>
             <Link href={url.TOP}>
-              <h1 className={"pl-8 font-extrabold"}>Next-Template</h1>
+              <h1 className={"pl-8 font-extrabold"}>
+                ゆめみコーディングテスト(フロントエンド)
+              </h1>
             </Link>
           </div>
           <main className="flex-1 space-y-8 p-24">{children}</main>
