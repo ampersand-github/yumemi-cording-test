@@ -1,0 +1,62 @@
+name: pull-request
+
+on: [pull_request]
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # https://www.chromatic.com/docs/github-actions#support-for-codeactionscheckoutv2code-and-above
+
+      - name: Touch .env
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_ORIGIN=${{ secrets.NEXT_PUBLIC_ORIGIN }} >> .env
+          echo DB_USER=${{ secrets.DB_USER }} >> .env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+          echo DATABASE_URL="mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost:${{ secrets.DB_PORT }}/${{ secrets.DB_NAME }}?schema=public" >> .env
+
+      # todo jsonファイルを作る(GCSダミー)
+
+      # docker-composeを最初にやるのはdockerが立ち上がってからmysqlに接続するまでにタイムラグがあるから
+      # 接続できないとP1017エラーがでる
+      - name: Run Docker Compose
+        run: docker-compose --env-file .env up -d
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - run: npm ci
+
+      # GitHub ActionsでResource not accessible by integrationが出た時の対処法
+      # https://zenn.dev/tatsugon/articles/github-actions-permission-error
+      - name: Run ESLint
+        uses: reviewdog/action-eslint@v1
+        with:
+          reporter: github-check
+          eslint_flags: "src/"
+          fail_on_error: true
+
+      # prisma migrate
+      - name: Run Prisma Migration
+        run: npm run prisma:migration
+
+      # テスト
+      - name: Run test
+        run: npm run test
+
+      # storybookのホスティング
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
