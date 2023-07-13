@@ -3,7 +3,7 @@ import { url } from "@/__shared__/utils/url";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import React from "react";
-import "src/app/(root)/globals.css";
+import "src/app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

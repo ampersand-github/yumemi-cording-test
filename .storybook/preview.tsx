@@ -1,4 +1,4 @@
-import "@/app/(root)/globals.css";
+import "@/app/globals.css";
 import type { Preview } from "@storybook/react";
 // @ts-ignore
 // TS2307: Cannot find module '@/components/ui/toaster' or its corresponding type declarations.
