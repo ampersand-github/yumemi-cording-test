@@ -15,24 +15,6 @@ jobs:
         run: |
           touch .env
           echo NEXT_PUBLIC_ORIGIN=${{ secrets.NEXT_PUBLIC_ORIGIN }} >> .env
-          echo DB_USER=${{ secrets.DB_USER }} >> .env
-          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-          echo DATABASE_URL="mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost:${{ secrets.DB_PORT }}/${{ secrets.DB_NAME }}?schema=public" >> .env
-
-      # todo jsonファイルを作る(GCSダミー)
-
-      # docker-composeを最初にやるのはdockerが立ち上がってからmysqlに接続するまでにタイムラグがあるから
-      # 接続できないとP1017エラーがでる
-      - name: Run Docker Compose
-        run: docker-compose --env-file .env up -d
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "npm"
 
       - run: npm ci
 
@@ -44,10 +26,6 @@ jobs:
           reporter: github-check
           eslint_flags: "src/"
           fail_on_error: true
-
-      # prisma migrate
-      - name: Run Prisma Migration
-        run: npm run prisma:migration
 
       # テスト
       - name: Run test

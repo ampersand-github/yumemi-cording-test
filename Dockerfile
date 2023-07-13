@@ -27,15 +27,9 @@ COPY . .
 
 # Arguments that can be passed at build time
 ARG NEXT_PUBLIC_ORIGIN
-ARG GCP_PROJECT_ID
-ARG GCP_PRIVATE_KEY
-ARG GCP_CLIENT_EMAIL
 
 # t3-envの関係でこっちで.envを作成する
 RUN echo "NEXT_PUBLIC_ORIGIN=${NEXT_PUBLIC_ORIGIN}" >> .env \
-    && echo "GCP_PROJECT_ID=${GCP_PROJECT_ID}" >> .env \
-    && echo "GCP_PRIVATE_KEY=${GCP_PRIVATE_KEY}" >> .env \
-    && echo "GCP_CLIENT_EMAIL=${GCP_CLIENT_EMAIL}" >> .env
 
 # Generate prisma client
 RUN npx prisma generate
