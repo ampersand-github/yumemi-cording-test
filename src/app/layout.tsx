@@ -28,7 +28,13 @@ export default function RootLayout({
               </h1>
             </Link>
           </div>
-          <main className="flex-1 space-y-8 p-24">{children}</main>
+          <main className="flex justify-center">
+            <div
+              className={"max-w-screen-md flex-1 items-center space-y-8 p-12"}
+            >
+              {children}
+            </div>
+          </main>
         </div>
 
         <Toaster />
