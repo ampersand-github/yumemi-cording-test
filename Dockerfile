@@ -26,10 +26,13 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Arguments that can be passed at build time
-ARG NEXT_PUBLIC_ORIGIN
+ARG NEXT_ORIGIN
+ARG NEXT_RESAS_API_KEY
+ARG BASIC_AUTH_USER
+ARG BASIC_AUTH_PASSWORD
 
 # t3-envの関係でこっちで.envを作成する
-RUN echo "ORIGIN=${ORIGIN}" >> .env \
+RUN echo "NEXT_ORIGIN=${NEXT_ORIGIN}" >> .env \
 RUN echo "NEXT_RESAS_API_KEY=${NEXT_RESAS_API_KEY}" >> .env \
 RUN echo "BASIC_AUTH_USER=${BASIC_AUTH_USER}" >> .env \
 RUN echo "BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}" >> .env
