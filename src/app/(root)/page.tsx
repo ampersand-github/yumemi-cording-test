@@ -3,6 +3,7 @@ import { PrefecturesCheckBox } from "@/app/(root)";
 import Loading from "@/app/(root)/loading";
 import { env } from "@/env.mjs";
 import { Suspense } from "react";
+import { PopulationChart } from "@/app/(root)";
 
 // todo 別のファイルに移動する
 // todo 型を付ける
@@ -19,9 +20,9 @@ export default async function Home() {
   const prefectures = await fetchPrefectures(apiKey, prefecturesUrl);
 
   return (
-    <main className="flex min-h-screen flex-col items-center space-y-12">
+    <main className="flex min-h-screen flex-col space-y-12">
       <Suspense fallback={<Loading />}>
-        <div className={"flex basis-16 flex-wrap"}>
+        <div className={"flex flex-wrap justify-center"}>
           {prefectures.map(
             (item: { prefCode: number; prefName: string }, index: number) => (
               <>
@@ -35,6 +36,9 @@ export default async function Home() {
             )
           )}
         </div>
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <PopulationChart />
       </Suspense>
     </main>
   );
