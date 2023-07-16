@@ -29,7 +29,10 @@ COPY . .
 ARG NEXT_PUBLIC_ORIGIN
 
 # t3-envの関係でこっちで.envを作成する
-RUN echo "NEXT_PUBLIC_ORIGIN=${NEXT_PUBLIC_ORIGIN}" >> .env \
+RUN echo "ORIGIN=${ORIGIN}" >> .env \
+RUN echo "NEXT_RESAS_API_KEY=${NEXT_RESAS_API_KEY}" >> .env \
+RUN echo "BASIC_AUTH_USER=${BASIC_AUTH_USER}" >> .env \
+RUN echo "BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}" >> .env
 
 # Generate prisma client
 RUN npx prisma generate
