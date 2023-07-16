@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-   NEXT_RESAS_API_KEY: z.string().min(1),
+    NEXT_RESAS_API_KEY: z.string().min(1),
   },
   client: {
     NEXT_ORIGIN: z.string().url().min(1),
