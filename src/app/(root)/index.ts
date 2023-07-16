@@ -16,5 +16,5 @@ export interface IPopulation {
 }
 
 export const populationAtom = atom<IPopulation[]>([]);
-export { PrefecturesCheckBox } from "./_components/prefectures-checkbox";
 export { PopulationChart } from "./_components/population-chart";
+export { PrefecturesCheckBox } from "./_components/prefectures-checkbox";

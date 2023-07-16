@@ -1,9 +1,8 @@
 import { url } from "@/__shared__/utils/url";
-import { PrefecturesCheckBox } from "@/app/(root)";
+import { PopulationChart, PrefecturesCheckBox } from "@/app/(root)";
 import Loading from "@/app/(root)/loading";
 import { env } from "@/env.mjs";
 import { Suspense } from "react";
-import { PopulationChart } from "@/app/(root)";
 
 // todo 別のファイルに移動する
 // todo 型を付ける

@@ -28,9 +28,11 @@ export default function RootLayout({
               </h1>
             </Link>
           </div>
-          <main className="flex justify-center">
+          <main className="flex flex-row items-center justify-center">
             <div
-              className={"max-w-screen-md flex-1 items-center space-y-8 p-12"}
+              className={
+                "max-w-screen-lg flex-1 items-center space-y-8 p-8 md:p-12"
+              }
             >
               {children}
             </div>
