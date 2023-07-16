@@ -6,7 +6,7 @@ steps:
         "build",
         "--no-cache",
         "--build-arg",
-        "ORIGIN=${_ORIGIN}",
+        "NEXT_ORIGIN=${_NEXT_ORIGIN}",
         "--build-arg",
         "NEXT_RESAS_API_KEY=${_NEXT_RESAS_API_KEY}",
         "--build-arg",
