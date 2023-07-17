@@ -5,28 +5,37 @@
 ## このリポジトリについて
 
 - ゆめみコーディングテスト(フロントエンド)の課題を解いたリポジトリです。
-- このリポジトリは、todo 自分のテンプレート から作成しています。
+- このリポジトリは、[ampersand-github/next-template](https://github.com/ampersand-github/next-template) から作成しています。
 
 ## 質問
 
 ### 課題の取り組み開始から完了までに要した合計時間
 
-todo テーブル形式で一覧化
-todo 詳細なものは miro のリンクはる
+27H  
+うち、実装部分が 14H、環境構築などが 13H です。  
+詳細は[miro](https://miro.com/app/board/uXjVM2ncf_A=/?share_link_id=189412861876/)のタスクシートに記載してあります。
 
 ### これまでの総合的なプログラミング歴
 
-todo 書く
+- 2016 - 2019 : OracleSQL
+- 2019 - 2022 : Flutter, React, Firebase
+- 2022 - 2023 : Next.js, NestJS, AWS
+
+計：7 年  
+詳細は[職務経歴 - ampersand の開発記](https://blog.ampersand.today/career/resume)に記述してあります。
 
 ### これまでの WEB フロントエンドプログラミング歴
 
-todo 書く
+- 2019 - 2022 : Flutter, React, Firebase
+- 2022 - 2023 : Next.js, NestJS, AWS
+
+計：3〜4 年  
+詳細は[職務経歴 - ampersand の開発記](https://blog.ampersand.today/career/resume)に記述してあります。
 
 ### 着手にあたり参考にしたページや書籍、リポジトリ
 
-todo 書く
-
-- 自分のテンプレート
+- [ampersand-github/next-template](https://github.com/ampersand-github/next-template)
+- [shadcn/ui](https://ui.shadcn.com/)
 
 ## なぜ
 
@@ -39,8 +48,9 @@ todo 書く
 - backlog は、markdown が使いづらい
 - github の issue は、みんな使うので面白みがない
 
-です。  
-実務ならチーム開発効率をあげるために、何かしらのタスク管理ツール＋ miro の組み合わせが好みです。
+です。
+
+最近なら notion のプロジェクトテンプレートが優秀と聞くので、notion+miro の組み合わせも良いと思います。
 
 ### なぜストーリーポイントでなく工数で見積もるのか
 
@@ -49,31 +59,34 @@ todo 書く
 
 ### なぜ GCP を使うのか
 
-実務を考えたときのインフラ選択肢として、AWS, GCP, Firebase, Vercel があります。
-
+実務を考えたときのインフラ選択肢として、AWS, GCP, Firebase, Vercel があります。  
 Firebase は
 
 - docker ベースのホスティングができないこと
 - RDB がない
 
-以下の理由から除外しました。
+以上の理由から除外しました。  
+Vercel は RDB がベータ版であること を理由を除外しました。
 
-Vercel は
+残りの AWS と GCP ですが、GCP の方が扱いやすいという理由で GCP を選択しました。
 
-- RDB がベータ版であること
+## やっていないこと
 
-を理由を除外しました。
+### recharts に由来する警告の対処
 
-残りの AWS と GCP ですが、
+やってません
 
-- GCP の方が、扱いやすい
+### style は自分で記述し、UI フレームワークなどは原則使用しないこと
 
-という理由で GCP を選択しました。
+tailwind で書いたあとに CSS に書き直そうかと思いましたが、やっていません。  
+tailwind は素の CSS に近いので、tailwind でもスタイリング力を測れると思っています。
+
+## E2E テスト
+
+やってません。このぐらいの規模感からすると、E2E テストは必要ないと思っています。  
+単体テストとストーリーブックのデザイン確認を充実させることで、E2E テストは手動でもいいと思っています。  
+(フロントエンドのテストはかなり悩んでいます)
 
 ## リンク
 
-todo miro のリンクはる
-
-## メモ
-
-- e2e テスト
+- [miro](https://miro.com/app/board/uXjVM2ncf_A=/?share_link_id=189412861876/)
