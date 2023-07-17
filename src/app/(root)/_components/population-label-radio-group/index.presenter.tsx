@@ -30,7 +30,7 @@ export const PopulationLabelRadioGroupPresenter = ({ handleClick }: Props) => {
       </div>
       <div className="flex items-center space-x-2">
         <RadioGroupItem value="老年人口" id="r4" />
-        <Label htmlFor="r3">老年人口</Label>
+        <Label htmlFor="r4">老年人口</Label>
       </div>
     </RadioGroup>
   );

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PopulationLabelRadioGroupPresenter } from "./index.presenter";
 
 const meta: Meta<typeof PopulationLabelRadioGroupPresenter> = {
-  title: "components/root/LineChartPresenter",
+  title: "components/root/PopulationLabelRadioGroupPresenter",
   component: PopulationLabelRadioGroupPresenter,
 };
 
