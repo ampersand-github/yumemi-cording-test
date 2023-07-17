@@ -1,0 +1,18 @@
+import { PopulationLabel } from "@/app/(root)";
+import type { Meta, StoryObj } from "@storybook/react";
+import { PopulationLabelRadioGroupPresenter } from "./index.presenter";
+
+const meta: Meta<typeof PopulationLabelRadioGroupPresenter> = {
+  title: "components/root/LineChartPresenter",
+  component: PopulationLabelRadioGroupPresenter,
+};
+
+export default meta;
+type Story = StoryObj<typeof PopulationLabelRadioGroupPresenter>;
+export const Default: Story = {
+  args: {
+    handleClick: (label: PopulationLabel) => {
+      console.log("label", label);
+    },
+  },
+};
