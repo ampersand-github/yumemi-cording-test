@@ -1,8 +1,5 @@
 import "@/app/globals.css";
 import type { Preview } from "@storybook/react";
-// @ts-ignore
-// TS2307: Cannot find module '@/components/ui/toaster' or its corresponding type declarations.
-import { Toaster } from "@/__shared__/components/ui/toaster";
 import { initialize, mswLoader } from "msw-storybook-addon";
 
 // Initialize MSW
@@ -30,7 +27,6 @@ const preview: Preview = {
     (Story) => (
       <div>
         <Story />
-        <Toaster />
       </div>
     ),
   ],

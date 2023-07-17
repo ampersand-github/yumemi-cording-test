@@ -1,5 +1,9 @@
 import { url } from "@/__shared__/utils/url";
-import { PopulationChart, PrefecturesCheckBox } from "@/app/(root)";
+import {
+  PopulationChart,
+  PopulationLabelRadioGroup,
+  PrefecturesCheckBox,
+} from "@/app/(root)";
 import Loading from "@/app/(root)/loading";
 import { env } from "@/env.mjs";
 import { Suspense } from "react";
@@ -36,6 +40,7 @@ export default async function Home() {
           )}
         </div>
       </Suspense>
+      <PopulationLabelRadioGroup />
       <Suspense fallback={<Loading />}>
         <PopulationChart />
       </Suspense>

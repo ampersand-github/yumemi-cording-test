@@ -1,7 +1,12 @@
-import { IPopulation } from "@/app/(root)";
+import { IPopulation, PopulationLabel } from "@/app/(root)";
 import { convertTotalPopulationData } from "./convert-total-population-data";
 
 describe("convertTotalPopulationData", () => {
+  // [jestでテスト実行時console.errorで止まらないようにする | Simple is Beautiful.](https://blog.kozakana.net/2021/02/dont-stop-with-console-error-when-running-tests-in-jest/)
+  jest
+    .spyOn(console, "error")
+    .mockImplementation((message) => console.log(message));
+
   const mockInput: IPopulation[] = [
     {
       prefCode: 1,
@@ -49,6 +54,13 @@ describe("convertTotalPopulationData", () => {
   ];
 
   it("指定した引数を渡したとき、指定したデータが生成されるべき", () => {
-    expect(convertTotalPopulationData(mockInput)).toEqual(expectedOutput);
+    const actual = convertTotalPopulationData(mockInput, "総人口");
+    expect(actual).toStrictEqual(expectedOutput);
+  });
+
+  it("指定した引数を渡したとき、ラベルが存在しない場合、エラーを返すべき", () => {
+    const actual = () =>
+      convertTotalPopulationData(mockInput, "fail" as PopulationLabel);
+    expect(actual).toThrowError("failデータが見つかりませんでした");
   });
 });
